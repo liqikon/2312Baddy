@@ -38,38 +38,7 @@ gltfLoader.load(
     }
 )
 
- // 하트 모양의 SVG를 정의합니다.
-    const heartShape = new THREE.Shape();
-    heartShape.moveTo(0, -4);
-    heartShape.bezierCurveTo(2, -4, 2, 3, 0, 7);
-    heartShape.bezierCurveTo(-2, 3, -2, -4, 0, -4);
 
-    const heartGeometry = new THREE.ShapeGeometry(heartShape);
-    const heartMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-    const heartMesh = new THREE.Mesh(heartGeometry, heartMaterial);
-
-    // 마우스 클릭 이벤트 처리
-    const raycaster = new THREE.Raycaster();
-    const mouse = new THREE.Vector2();
-
-    window.addEventListener('click', onClick);
-
-    function onClick(event) {
-      // 마우스의 클릭 위치를 계산합니다.
-      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-      mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
-      // 광선을 생성하고 클릭 위치에 광선을 쏩니다.
-      raycaster.setFromCamera(mouse, camera);
-      const intersects = raycaster.intersectObjects(scene.children);
-
-      // 클릭 위치에 하트 모양의 SVG를 추가합니다.
-      if (intersects.length > 0) {
-        const heartClone = heartMesh.clone();
-        heartClone.position.copy(intersects[0].point);
-        scene.add(heartClone);
-      }
-    }
 
 /**
  * Lights
