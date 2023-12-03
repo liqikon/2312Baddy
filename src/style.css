@@ -1,0 +1,31 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body
+{
+    overflow: hidden;
+}
+
+.webgl
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+  color: linear-gradient(60deg, #8eb4fc 10%, #a158e6 50%, #f393d3 100%);
+
+}
+
+/* 
+svg path{
+    stroke: #55FDFF;
+    fill: transparent;
+    stroke-width: 1rem;
+  
+    filter: drop-shadow(0rem 0rem 1rem #55FDFF);
+  }
+   */
